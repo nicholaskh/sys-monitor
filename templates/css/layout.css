@@ -1,0 +1,46 @@
+﻿ body{ background:#931101 ;}
+/* style for login page */
+body#login{background:#C8E6EA }
+#topNav{width:80px; height:32px; position:absolute; right:0; top:0; background:url(../images/topNavBg.gif) no-repeat left top; padding-left:30px; line-height:30px; color:white; text-align:center;}
+#topNav a{color:#fff; font-family:"微软雅黑"；}
+#loginPanel{position:absolute;top:50%;left:50%;margin-top:-225px;margin-left:-250px;width:500px;height:450px;text-align:center;background:url(../images/login_bg.jpg) no-repeat;}
+#loginForm{width:260px;  margin-left:auto; margin-right:auto; text-align:left; margin-top:160px;}
+#loginForm div{margin-bottom:6px;   }
+#loginForm label{display:block;   color:#333; line-height:24px;}
+#loginForm input{width:240px; border:1px solid #B5BDC7;     height:24px; line-height:24px; padding-left:4px; padding-right:4px;}
+#loginForm a{position:relative;}
+#loginForm #checkCode{vertical-align:bottom; margin-left:6px;}
+#loginForm .btnSubmit{padding-top:10px;}
+#loginForm .btnSubmit input{width:83px; height:28px; border:none; background:transparent url(../images/btn_login.png) no-repeat; cursor:pointer;}
+#loginForm .btnSubmit .submit{background-position:left top;}
+#loginForm .btnSubmit .submit:hover{background-position: 0 -37px}
+#loginForm .btnSubmit .reset{background-position:  -94px -6px; margin-left:8px; cursor:pointer;}
+#loginForm .btnSubmit .reset:hover{background-position:  -94px -41px; curosr:pointer;}
+#login #footer{position:absolute; bottom:0; left:0; width:100%; color:#99DFE3; text-align:center; font-size:10px;}
+/*header style */
+#header{height:96px;  position:relative; background:url(../images/headbg.jpg) repeat-x;   width:100%; padding:0; margin:0; }
+#header .innerWrap{width:100%; height:96px;   margin:0; background: url(../images/headerDecroRight.png) no-repeat right top;} 
+#header #logo{width:520px; height:97px;  position:absolute; left:0px; top:0px; display:block}
+#header h1{color:#fff; font-size:18px; position:absolute;  left:202px; top:30px; width:300px; font-weight:normal; display:none;}
+#header #topInfo{position:absolute; right:30px; top:3px; line-heigth:20px; width:210px; text-align:right; color:#fff;}
+#header #topInfo span{padding-right:8px;}
+#header #topInfo a{margin-left:8px; margin-right:20px; color:#fff;}
+/* content style */
+#content{padding:8px 6px 0 6px;background:#AE1300 url(../images/content_bg.jpg) repeat-x;}
+.contentWrapper{padding:25px 25px;vertical-align:top;overflow:hidden;min-height:610px;background:#fff url(../images/bg_gray.jpg) repeat-x 0 1px; border-right:1px solid #dc0000; border-bottom:1px solid #dc0000;}
+.fixWid{max-width:1400px;margin-top:20px;}
+#footerSm{color:#BE4949;position:absolute;text-align:center;line-height:25px;left:0;bottom:0;width:100%;font-size:11px;font-family:"微软雅黑","宋体";height:72px; background:url(../images/footerBg.jpg) repeat-x;}
+#footerSm p{float:left; padding-left:20px; margin-top:15px;}
+#footerSm .footerBox{width:600px;height:70px;margin-top:2px;margin-left:auto;margin-right:auto;background:url(../images/footerBgLight.jpg) no-repeat;}
+#footerSm .logo{width:145px;height:50px;background:url(../images/line.gif) no-repeat right top;margin-left:80px;}
+#footer{background-color:#86C9E5;font-size:11px;clear:both;height:72px;background:url(../images/footer_bg.jpg) repeat-x left top;font-family:"微软雅黑","宋体";color:#fff;overflow:hidden;}
+#footer p{float:left; padding-left:20px; margin-top:15px;}
+#footer  .footerBox{width:600px; height:70px;  background:url(../images/footerBgLight.jpg) no-repeat;  }
+#footer  .logo{width:145px; height:50px; background:url(../images/line.gif) no-repeat right top; margin-left:20px;  }
+#upload .leftCol, #upload .rightCol{width:44%; float:left; background:white;}
+#upload .midCol{width:10%; float:left; background:white;}
+#upload  ul{text-align:center;}
+#upload .header{background-color:#F2F2F2; border-top:1px solid #fff;   padding:10px 20px;  }
+#upload  .midCol a{width:30px; height:25px;  background:url(../images/btnLoad.gif) no-repeat; display:block; text-indent:-9999em; margin:8px auto;}
+#upload  .midCol .up{background-position:-2px -2px;}
+#upload  .midCol .dn{background-position:-2px -35px;}
