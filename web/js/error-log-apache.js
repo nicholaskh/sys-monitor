@@ -23,29 +23,35 @@ $(document).ready(function() {
         chart: {
             renderTo: 'container',
             defaultSeriesType: 'spline',
+            width: 1000,
+            spacingLeft: 20,
             events: {
                 load: requestData
             }
         },
         title: {
-            text: 'Live random data'
+            text: 'apache 500日志'
         },
         xAxis: {
             type: 'datetime',
             tickPixelInterval: 150,
-            maxZoom: 20 * 1000
+            maxZoom: 20 * 1000,
+            title: {
+                text: '时间',
+                margin: 20
+            }
         },
         yAxis: {
             minPadding: 0.2,
             maxPadding: 0.2,
             title: {
                 text: 'Value',
-                margin: 80
+                margin: 30
             }
         },
         series: [{
-            name: 'Random data',
+            name: '日志数',
             data: []
-        }]
+        }],
     });        
 });
