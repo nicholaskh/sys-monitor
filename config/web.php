@@ -40,8 +40,8 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
         'mongodb' => [
-            'class' => '\yii\mongodb\Connection',
-            'dsn' => 'mongodb://root@localhost:27017/ffan_monitor',
+            'class' => 'yii\mongodb\Connection',
+            'dsn' => 'mongodb://localhost:27017/ffan_monitor',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

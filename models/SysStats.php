@@ -1,9 +1,10 @@
 <?php
 
-use yii\mongodb\ActiveRecord;
+namespace app\models;
 
-class SysStats extends ActiveRecord
-{
+use \yii\mongodb\ActiveRecord;
+
+class SysStats extends ActiveRecord {
     /**
      * @return string the name of the index associated with this ActiveRecord class.
      */

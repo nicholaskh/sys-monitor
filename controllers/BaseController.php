@@ -9,7 +9,7 @@ class BaseController extends Controller {
     public $title;
 
     protected function renderJson($out) {
-        header("Content-type: text/json");
+        header("Content-type: application/json");
         echo json_encode($out);
     }
 
