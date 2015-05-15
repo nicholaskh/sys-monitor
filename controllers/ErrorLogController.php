@@ -14,15 +14,21 @@ class ErrorLogController extends BaseController {
     public function actionApache() {
         $hour = time() - time() % 3600;
         $startHour = $hour - self::SHOW_HIST_LOG_NUMBER * 3600;
-        $data = SysStats::find()->where(['tag' => 'nginx_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
+        $data404 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
+        //FIXME change tag to apache_500
+        $data500 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
         return $this->render('apache', [
-            'data' => array_map(function($e) {return [$e->ts * 1000, $e->count];}, $data),
+            'data404' => array_map(function($e) {return [$e->ts * 1000, $e->count];}, $data404),
+            'data500' => array_map(function($e) {return [$e->ts * 1000, $e->count];}, $data500),
         ]);
     }
 
     public function actionApacheAjax() {
+        $code = \Yii::$app->request->get('code');
         $hour = time() - time() % 3600;
-        $log = SysStats::find()->where(['tag' => 'nginx_404', 'ts' => $hour])->one();
+        //FIXME
+        //$log = SysStats::find()->where(['tag' => "apache_$code", 'ts' => $hour])->one();
+        $log = SysStats::find()->where(['tag' => "apache_404", 'ts' => $hour])->one();
         $count = $log ? $log->count : 10;
         $this->renderJson([$hour * 1000, $count]);
     }
