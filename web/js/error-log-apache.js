@@ -12,9 +12,11 @@ function requestDataApache() {
                 var lastData = series.data[series.data.length-1];
                 if (lastData && lastData.x == point[0]) {
                     lastData.update(point[1]);
+                    chart.redraw();
                 } else {
                     var shift = series.data.length > 20; // shift if the series is longer than 20
                     series.addPoint(point, true, shift);
+                    chart.redraw();
                 }
             }
             
@@ -25,10 +27,13 @@ function requestDataApache() {
 }
 
 $(document).ready(function() {
+    drawChart('spline');  
+});
+function drawChart(type) {
     chart = new Highcharts.Chart({
         chart: {
             renderTo: 'apache-404-container',
-            defaultSeriesType: 'spline',
+            defaultSeriesType: type,
             width: 1000,
             spacingLeft: 20,
             events: {
@@ -58,14 +63,21 @@ $(document).ready(function() {
         series: [{
                 allowPointSelect: true,
                 name: '404日志数',
-                data: data404
+                data: data[0]
             },
             {
                 allowPointSelect: true,
                 name: '500日志数',
-                data: data500
+                data: data[1]
             }
         ],
-    });        
-
+    });
+}
+$(document).on('click', '.spline', function(e){
+    chart.destroy();
+    drawChart('spline');
+});
+$(document).on('click', '.colu', function(e){
+    chart.destroy();
+    drawChart('column');
 });
