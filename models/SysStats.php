@@ -18,6 +18,6 @@ class SysStats extends ActiveRecord {
      */
     public function attributes()
     {
-        return ['_id', 'tag', 'ts', 'count'];
+        return ['_id', 'tag', 'ts', 'value'];
     }
 }
