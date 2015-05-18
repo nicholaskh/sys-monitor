@@ -24,13 +24,22 @@ class ErrorLogController extends BaseController {
     }
 
     public function actionApacheAjax() {
-        $code = \Yii::$app->request->get('code');
         $hour = time() - time() % 3600;
-        //FIXME
-        //$log = SysStats::find()->where(['tag' => "apache_$code", 'ts' => $hour])->one();
-        $log = SysStats::find()->where(['tag' => "apache_404", 'ts' => $hour])->one();
-        $count = $log ? $log->count : 10;
-        $this->renderJson([$hour * 1000, $count]);
+        $log = SysStats::find()->where(['tag' => ['apache_404', 'apache_500'], 'ts' => $hour])->all();
+        $ret = [];
+        foreach ($log as $l) {
+            if ($l->tag == 'apache_404') {
+                $ret[0] = [$hour * 1000, $l->count];
+            } else {
+                $ret[1] = [$hour * 1000, $l->count];
+            }
+        }
+        for ($i = 0; $i < 2; $i ++) {
+            if (!isset($ret[$i])) {
+                $ret[$i] = [$hour * 1000, 10];
+            }
+        }
+        $this->renderJson($ret);
     }
 
 }

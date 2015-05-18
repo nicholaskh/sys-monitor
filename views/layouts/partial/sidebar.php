@@ -10,13 +10,16 @@
         <li class="icn_categories"><a href="/error-log/apache">Apache错误日志</a></li>
         <!--<li class="icn_tags"><a href="#">Tags</a></li>-->
     </ul>
-<!--
-    <h3>Users</h3>
+    <h3>日志查询</h3>
     <ul class="toggle">
-        <li class="icn_add_user"><a href="#">Add New User</a></li>
+        <li class="icn_categories"><a href="/log-inquire/app">飞凡后台日志查询</a></li>
+<!--
+        <li class="icn_add_user"><a href="#">飞凡后台日志查询</a></li>
         <li class="icn_view_users"><a href="#">View Users</a></li>
         <li class="icn_profile"><a href="#">Your Profile</a></li>
+-->
     </ul>
+<!--
     <h3>Media</h3>
     <ul class="toggle">
         <li class="icn_folder"><a href="#">File Manager</a></li>

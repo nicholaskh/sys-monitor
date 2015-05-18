@@ -8,7 +8,7 @@ use yii\bootstrap\NavBar;
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-    <title>非凡监控系统</title>
+    <title>飞凡监控系统</title>
 	<link rel="stylesheet" href="/css/layout.css" type="text/css" media="screen" />
     <!--[if lt IE 9]>
 	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
@@ -56,7 +56,7 @@ use yii\bootstrap\NavBar;
 <?php $this->beginBody(); ?>
 <header id="header">
     <hgroup>
-        <h1 class="site_title"><a href="index.html">非凡日志监控系统</a></h1>
+        <h1 class="site_title"><a href="index.html">飞凡日志监控系统</a></h1>
         <h2 class="section_title"><?= $this->context->title;?></h2><div class="btn_view_site"><a href="http://ffan.com">View Site</a></div>
     </hgroup>
 </header> <!-- end of header bar -->
