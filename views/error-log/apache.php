@@ -20,4 +20,4 @@
     <button class='spline'>线条图</button>
     <button class='colu'>柱状图</button>
 </div>
-<div id="apache-404-container"></div>
+<div id="apache-container"></div>

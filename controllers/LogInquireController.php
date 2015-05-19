@@ -28,6 +28,7 @@ class LogInquireController extends BaseController {
         ]);
     }
 
+    // TODO (place holder)
     public function actionAppAjax() {
         $this->renderJson();
     }

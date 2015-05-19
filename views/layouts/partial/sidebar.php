@@ -19,14 +19,17 @@
         <li class="icn_profile"><a href="#">Your Profile</a></li>
 -->
     </ul>
-<!--
-    <h3>Media</h3>
+    <h3>数据统计</h3>
     <ul class="toggle">
+        <li class="icn_categories"><a href="/stats/elapsed">请求时间统计</a></li>
+<!--
         <li class="icn_folder"><a href="#">File Manager</a></li>
         <li class="icn_photo"><a href="#">Gallery</a></li>
         <li class="icn_audio"><a href="#">Audio</a></li>
         <li class="icn_video"><a href="#">Video</a></li>
+-->
     </ul>
+<!--
     <h3>Admin</h3>
     <ul class="toggle">
         <li class="icn_settings"><a href="#">Options</a></li>

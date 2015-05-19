@@ -8,12 +8,13 @@ use app\models\SysStats;
 class ErrorLogController extends BaseController {
 
     const SHOW_HIST_LOG_NUMBER = 10;
+    const HIST_LOG_INTERVAL = 3600;
 
     public $title = '服务器错误日志监控';
 
     public function actionApache() {
-        $hour = time() - time() % 3600;
-        $startHour = $hour - self::SHOW_HIST_LOG_NUMBER * 3600;
+        $hour = time() - time() % self::HIST_LOG_INTERVAL;
+        $startHour = $hour - self::SHOW_HIST_LOG_NUMBER * self::HIST_LOG_INTERVAL;
         $data404 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
         //FIXME change tag to apache_500
         $data500 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();

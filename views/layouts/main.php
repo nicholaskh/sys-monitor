@@ -1,4 +1,6 @@
 <?= $this->render('partial/header') ?>
 <?= $this->render('partial/sidebar') ?>
-<?= $content ?>
+<div class='wrapper'>
+    <?= $content ?>
+</div>
 <?= $this->render('partial/footer') ?>

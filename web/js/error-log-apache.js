@@ -32,7 +32,7 @@ $(document).ready(function() {
 function drawChart(type) {
     chart = new Highcharts.Chart({
         chart: {
-            renderTo: 'apache-404-container',
+            renderTo: 'apache-container',
             defaultSeriesType: type,
             width: 1000,
             spacingLeft: 20,
