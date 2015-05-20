@@ -17,7 +17,7 @@ class StatsController extends BaseController {
         $elapseds = SysStats::find()->where(['regex', 'tag', '/^elapsed\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->all();
         $data = [];
         foreach ($elapseds as $e) {
-            $pathQuery = explode('|', $e->tag, 2)[1];
+            $path = explode('|', $e->tag, 2)[1];
             $data[$path][] = [$e->ts * 1000, $e->value];
         }
         return $this->render('elapsed', [
