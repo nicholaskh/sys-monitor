@@ -16,8 +16,8 @@ class ErrorLogController extends BaseController {
         $hour = time() - time() % self::HIST_LOG_INTERVAL;
         $startHour = $hour - self::SHOW_HIST_LOG_NUMBER * self::HIST_LOG_INTERVAL;
         $data = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
-        $stime = count($data) > 0 ? $data[0][0] : 0;
-        $etime = count($data) > 0 ? $data[count($data) - 1][0] : 0;
+        $stime = count($data) > 0 ? $data[0]->ts : 0;
+        $etime = count($data) > 0 ? $data[count($data) - 1]->ts : 0;
         $data404 = [];
         if (count($data)) {
             for ($t = $stime, $i = 0, $j = 0; $t <= $etime; $t += self::HIST_LOG_INTERVAL, $i++) {
@@ -32,8 +32,8 @@ class ErrorLogController extends BaseController {
         }
 
         $data = SysStats::find()->where(['tag' => 'apache_500'])->andWhere(['between', 'ts', $startHour, $hour])->all();
-        $stime = count($data) > 0 ? $data[0][0] : 0;
-        $etime = count($data) > 0 ? $data[count($data) - 1][0] : 0;
+        $stime = count($data) > 0 ? $data[0]->ts : 0;
+        $etime = count($data) > 0 ? $data[count($data) - 1]->ts : 0;
         $data500 = [];
         if (count($data)) {
             for ($t = $stime, $i = 0, $j = 0; $t <= $etime; $t += self::HIST_LOG_INTERVAL, $i++) {
@@ -47,8 +47,8 @@ class ErrorLogController extends BaseController {
             }
         }
         return $this->render('apache', [
-            'data404' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data404),
-            'data500' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data500),
+            'data404' => $data404,
+            'data500' => $data500,
         ]);
     }
 
