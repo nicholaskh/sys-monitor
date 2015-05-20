@@ -14,9 +14,14 @@ class StatsController extends BaseController {
     public function actionElapsed() {
         $endTime = time() - time() % self::ELAPSED_STATS_INTERVAL;
         $startTime = $endTime - self::SHOW_ELAPSED_STATS_NUMBER * self::ELAPSED_STATS_INTERVAL;
-        $data = SysStats::find()->where(['regex', 'tag', '/^elapsed\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->all();
+        $elapseds = SysStats::find()->where(['regex', 'tag', '/^elapsed\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->all();
+        $data = [];
+        foreach ($elapseds as $e) {
+            $path = explode('|', $e->tag, 2)[1];
+            $data[$path][] = [$e->ts * 1000, $e->value];
+        }
         return $this->render('elapsed', [
-            'data' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data),
+            'data' => $data,
         ]);
     }
 

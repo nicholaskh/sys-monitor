@@ -1,9 +1,19 @@
 <script>
-    var data = [];
-    data = [
+    var series = [
 <?php
-    foreach ($data as $d) {
-        echo "[$d[0], $d[1]],";
+    foreach ($data as $path=>$timesData) {
+        $dataStr = '[';
+        foreach ($timesData as $td) {
+            $dataStr .= "[{$td[0]}, {$td[1]}]";
+        }
+        $dataStr .= ']';
+        echo "
+{
+    allowPointSelect: true,
+    name: '$path执行时间',
+    data: $dataStr
+},
+";
     }
 ?>
     ];

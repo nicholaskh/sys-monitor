@@ -58,11 +58,6 @@ function drawChart(type) {
                 margin: 30
             }
         },
-        series: [{
-                allowPointSelect: true,
-                name: 'PHP执行时间',
-                data: data
-            }
-        ],
+        series: series,
     });
 }
