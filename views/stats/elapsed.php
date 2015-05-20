@@ -10,7 +10,7 @@
         echo "
 {
     allowPointSelect: true,
-    name: '$path执行时间',
+    name: '{$path}执行时间',
     data: $dataStr
 },
 ";
