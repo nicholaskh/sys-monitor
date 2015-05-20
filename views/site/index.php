@@ -1,7 +1,10 @@
 <section id="main" class="column">
     
-    <h4 class="alert_info">Welcome to the free MediaLoot admin panel template, this could be an informative message.</h4>
+    <h4 class="alert_info">欢迎使用非凡后台日志监控系统</h4>
     
+<?php
+// just comment it
+$str = <<<PHP
     <article class="module width_full">
         <header><h3>Stats</h3></header>
         <div class="module_content">
@@ -233,4 +236,6 @@
             </div>
     </article><!-- end of styles article -->
     <div class="spacer"></div>
+PHP;
+?>
 </section>
