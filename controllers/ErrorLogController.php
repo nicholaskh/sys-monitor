@@ -15,8 +15,37 @@ class ErrorLogController extends BaseController {
     public function actionApache() {
         $hour = time() - time() % self::HIST_LOG_INTERVAL;
         $startHour = $hour - self::SHOW_HIST_LOG_NUMBER * self::HIST_LOG_INTERVAL;
-        $data404 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
-        $data500 = SysStats::find()->where(['tag' => 'apache_500'])->andWhere(['between', 'ts', $startHour, $hour])->all();
+        $data = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
+        $stime = count($data) > 0 ? $data[0][0] : 0;
+        $etime = count($data) > 0 ? $data[count($data) - 1][0] : 0;
+        $data404 = [];
+        if (count($data)) {
+            for ($t = $stime, $i = 0, $j = 0; $t <= $etime; $t += self::HIST_LOG_INTERVAL, $i++) {
+                $d = $data[$j];
+                if ($d->ts == $t) {
+                    $data404[$i] = [$d->ts * 1000, $d->value];
+                    $j++;
+                } else {
+                    $data404[$i] = [$t * 1000, 0];
+                }
+            }
+        }
+
+        $data = SysStats::find()->where(['tag' => 'apache_500'])->andWhere(['between', 'ts', $startHour, $hour])->all();
+        $stime = count($data) > 0 ? $data[0][0] : 0;
+        $etime = count($data) > 0 ? $data[count($data) - 1][0] : 0;
+        $data500 = [];
+        if (count($data)) {
+            for ($t = $stime, $i = 0, $j = 0; $t <= $etime; $t += self::HIST_LOG_INTERVAL, $i++) {
+                $d = $data[$j];
+                if ($d->ts == $t) {
+                    $data500[$i] = [$d->ts * 1000, $d->value];
+                    $j++;
+                } else {
+                    $data500[$i] = [$t * 1000, 0];
+                }
+            }
+        }
         return $this->render('apache', [
             'data404' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data404),
             'data500' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data500),
