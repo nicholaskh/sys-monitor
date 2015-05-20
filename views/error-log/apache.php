@@ -3,7 +3,7 @@
     data[0] = [
 <?php
     foreach ($data404 as $d) {
-        echo "[$d[0], $d[1]-2],";
+        echo "[$d[0], $d[1]],";
     }
 ?>
     ];
