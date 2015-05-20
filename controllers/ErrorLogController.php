@@ -16,8 +16,7 @@ class ErrorLogController extends BaseController {
         $hour = time() - time() % self::HIST_LOG_INTERVAL;
         $startHour = $hour - self::SHOW_HIST_LOG_NUMBER * self::HIST_LOG_INTERVAL;
         $data404 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
-        //FIXME change tag to apache_500
-        $data500 = SysStats::find()->where(['tag' => 'apache_404'])->andWhere(['between', 'ts', $startHour, $hour])->all();
+        $data500 = SysStats::find()->where(['tag' => 'apache_500'])->andWhere(['between', 'ts', $startHour, $hour])->all();
         return $this->render('apache', [
             'data404' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data404),
             'data500' => array_map(function($e) {return [$e->ts * 1000, $e->value];}, $data500),
@@ -37,7 +36,7 @@ class ErrorLogController extends BaseController {
         }
         for ($i = 0; $i < 2; $i ++) {
             if (!isset($ret[$i])) {
-                $ret[$i] = [$hour * 1000, 10];
+                $ret[$i] = [$hour * 1000, 0];
             }
         }
         $this->renderJson($ret);
