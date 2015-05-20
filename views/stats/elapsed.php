@@ -4,7 +4,7 @@
     foreach ($data as $path=>$timesData) {
         $dataStr = '[';
         foreach ($timesData as $td) {
-            $dataStr .= "[{$td[0]}, {$td[1]}]";
+            $dataStr .= "[{$td[0]}, {$td[1]}],";
         }
         $dataStr .= ']';
         echo "
