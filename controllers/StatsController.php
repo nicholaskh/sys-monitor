@@ -18,7 +18,6 @@ class StatsController extends BaseController {
         $data = [];
         foreach ($elapseds as $e) {
             $pathQuery = explode('|', $e->tag, 2)[1];
-            $path = explode('?', $pathQuery, 2)[0];
             $data[$path][] = [$e->ts * 1000, $e->value];
         }
         return $this->render('elapsed', [
