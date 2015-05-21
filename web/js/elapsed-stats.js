@@ -35,7 +35,8 @@ function drawChart(type) {
             width: 1000,
             spacingLeft: 20,
             events: {
-                load: requestData
+                // TODO
+                //load: requestData
             }
         },
         title: {

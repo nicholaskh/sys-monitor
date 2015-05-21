@@ -25,6 +25,7 @@ class StatsController extends BaseController {
         ]);
     }
 
+    // TODO
     public function actionElapsedAjax() {
         $endTime = time() - time() % self::ELAPSED_STATS_INTERVAL;
         $log = SysStats::find()->where(['tag' => '/^elapsed\|/', 'ts' => $endTime])->one();
