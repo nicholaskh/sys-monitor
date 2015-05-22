@@ -13,7 +13,7 @@
     allowPointSelect: true,
     name: '{$path}',
     data: {$dataStr},
-    visible: '{$visible}'
+    visible: {$visible}
 },
 ";
     }
