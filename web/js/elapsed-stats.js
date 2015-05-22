@@ -37,7 +37,8 @@ function drawChart(type) {
             events: {
                 // TODO
                 //load: requestData
-            }
+            },
+            zoomType: 'xy'
         },
         title: {
             text: 'PHP执行时间统计'
