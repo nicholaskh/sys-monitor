@@ -60,6 +60,6 @@ function drawChart(type) {
                 margin: 30
             }
         },
-        series: series,
+        series: series
     });
 }
