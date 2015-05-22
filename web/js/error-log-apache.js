@@ -27,7 +27,7 @@ function requestDataApache() {
 }
 
 $(document).ready(function() {
-    drawChart('spline');  
+    drawChart('line');  
 });
 function drawChart(type) {
     chart = new Highcharts.Chart({
@@ -73,9 +73,9 @@ function drawChart(type) {
         ],
     });
 }
-$(document).on('click', '.spline', function(e){
+$(document).on('click', '.line', function(e){
     chart.destroy();
-    drawChart('spline');
+    drawChart('line');
 });
 $(document).on('click', '.colu', function(e){
     chart.destroy();

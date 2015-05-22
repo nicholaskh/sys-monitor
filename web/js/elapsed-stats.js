@@ -25,7 +25,7 @@ function requestData() {
 }
 
 $(document).ready(function() {
-    drawChart('spline');  
+    drawChart('line');  
 });
 function drawChart(type) {
     chart = new Highcharts.Chart({
