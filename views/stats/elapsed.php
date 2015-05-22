@@ -7,11 +7,13 @@
             $dataStr .= "[{$td[0]}, {$td[1]}],";
         }
         $dataStr .= ']';
+        $visible = ($path == "/" ? "true" : "false");
         echo "
 {
     allowPointSelect: true,
     name: '{$path}',
-    data: $dataStr
+    data: {$dataStr},
+    visible: '{$visible}'
 },
 ";
     }
