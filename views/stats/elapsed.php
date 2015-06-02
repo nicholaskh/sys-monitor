@@ -1,5 +1,5 @@
 <?php
-use yii\app\helpers\CustomizeHelper;
+use app\helpers\CustomizeHelper;
 ?>
 <script>
     var series = [
