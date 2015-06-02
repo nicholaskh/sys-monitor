@@ -16,4 +16,27 @@ class CustomizeHelper {
             $ip = "0.0.0.0"; 
         return($ip); 
     } 
+
+    public function cleanXSS(&$string, $low = FALSE) {
+        if (!is_array($string)) {
+            $string = trim($string);
+            $string = strip_tags($string);
+            $string = htmlspecialchars ($string);
+            if ($low) {
+                return TRUE;
+            }
+            $string = str_replace(['"', "\\", "'", "/", "..", "../", "./", "//"], '', $string);
+            $no = '/%0[0-8bcef]/';
+            $string = preg_replace($no, '', $string);
+            $no = '/%1[0-9a-f]/';
+            $string = preg_replace($no, '', $string);
+            $no = '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]+/S';
+            $string = preg_replace($no, '', $string);
+            return TRUE;
+        }
+        $keys = array_keys($string);
+        foreach ($keys as $key) {
+            clean_xss($string[$key]);
+        }
+    }
 }

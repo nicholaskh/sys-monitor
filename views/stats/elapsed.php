@@ -1,3 +1,6 @@
+<?php
+use yii\app\helpers\CustomizeHelper;
+?>
 <script>
     var series = [
 <?php
@@ -11,7 +14,7 @@
         echo "
 {
     allowPointSelect: true,
-    name: '{$path}',
+    name: '" . CustomizeHelper::getInstance()->cleanXSS($path) . "',
     data: {$dataStr},
     visible: {$visible}
 },
