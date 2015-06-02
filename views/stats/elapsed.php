@@ -14,7 +14,7 @@ use app\helpers\CustomizeHelper;
         echo "
 {
     allowPointSelect: true,
-    name: '" . CustomizeHelper::getInstance()->cleanXSS($path) . "',
+    name: '" . CustomizeHelper::cleanXSS($path) . "',
     data: {$dataStr},
     visible: {$visible}
 },
