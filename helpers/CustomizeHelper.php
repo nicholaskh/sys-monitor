@@ -24,7 +24,7 @@ class CustomizeHelper {
         if ($low) {
             return $string;
         }
-        $string = str_replace(['"', "\\", "'", "/", "..", "../", "./", "//"], '', $string);
+        $string = str_replace(['"', "\\", "'", "..", "../", "./", "//"], '', $string);
         $no = '/%0[0-8bcef]/';
         $string = preg_replace($no, '', $string);
         $no = '/%1[0-9a-f]/';
