@@ -79,7 +79,7 @@ function drawChart(type) {
             zoomType: 'xy'
         },
         title: {
-            text: 'PHP执行时间统计'
+            text: 'PHP请求次数统计'
         },
         xAxis: {
             type: 'datetime',
@@ -94,7 +94,7 @@ function drawChart(type) {
             minPadding: 0.2,
             maxPadding: 0.2,
             title: {
-                text: '平均执行时间',
+                text: '时间区间请求次数',
                 margin: 30
             }
         },
