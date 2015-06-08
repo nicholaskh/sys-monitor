@@ -1,4 +1,5 @@
 var elapsedChart;
+var reqCountChart;
 
 Highcharts.setOptions({ global: { useUTC: false } });
 
@@ -11,11 +12,9 @@ function requestData() {
             var lastData = series.data[series.data.length-1];
             if (lastData && lastData.x == point[0]) {
                 lastData.update(point[1]);
-                chart.redraw();
             } else {
                 var shift = series.data.length > 20; // shift if the series is longer than 20
                 series.addPoint(point, true, shift);
-                chart.redraw();
             }
             
             setTimeout(requestData, 10000);
