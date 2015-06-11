@@ -29,6 +29,10 @@
         <li class="icn_video"><a href="#">Video</a></li>
 -->
     </ul>
+    <h3>系统管理</h3>
+    <ul class="toggle">
+        <li class="icn_categories"><a href="/sys-manager/switch">系统开关</a></li>
+    </ul>
 <!--
     <h3>Admin</h3>
     <ul class="toggle">

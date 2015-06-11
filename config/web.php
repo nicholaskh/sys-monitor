@@ -43,6 +43,10 @@ $config = [
             'class' => 'yii\mongodb\Connection',
             'dsn' => 'mongodb://localhost:27017/ffan_monitor',
         ],
+        'zookeeper' => [
+            'class' => 'app\drivers\Zookeeper',
+            'address' => '127.0.0.1:2181',
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
