@@ -6,7 +6,7 @@ use app\models\SysStats;
 
 class StatsController extends BaseController {
 
-    const SHOW_ELAPSED_STATS_NUMBER = 100;
+    const SHOW_ELAPSED_STATS_NUMBER = 20;
     const ELAPSED_STATS_INTERVAL = 300;
 
     public $title = '数据统计';
