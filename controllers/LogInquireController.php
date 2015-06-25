@@ -23,6 +23,9 @@ class LogInquireController extends BaseController {
             $ets = time();
         }
         $query = $query->andWhere(['between', 'ts', $sts, $ets]);
+        if ($app = trim(\Yii::$app->request->get('app'))) {
+            $query = $query->andWhere(['app' => $app]);
+        }
         $provider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
@@ -32,6 +35,9 @@ class LogInquireController extends BaseController {
                 'attributes' => [
                     'ts' => [
                         'label' => '日期',
+                    ],
+                    'app' => [
+                        'label' => 'APP',
                     ],
                     'log' => [
                         'label' => '日志',
@@ -47,6 +53,7 @@ class LogInquireController extends BaseController {
             'dataProvider' => $provider,
             'startDate' => $startDate,
             'endDate' => $endDate,
+            'app' => $app,
         ]);
     }
 

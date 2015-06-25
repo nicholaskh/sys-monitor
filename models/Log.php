@@ -18,6 +18,6 @@ class Log extends ActiveRecord {
      */
     public function attributes()
     {
-        return ['_id', 'ts', 'log'];
+        return ['_id', 'ts', 'app', 'log'];
     }
 }

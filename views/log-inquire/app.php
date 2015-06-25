@@ -6,7 +6,7 @@ use yii\data\ActiveDataProvider;
 <style>
 table{display:block;width:1000px;border:1px solid #999}
 tr{width: 100%;}
-td{vertical-align:top;word-break:break-all;}
+td{vertical-align:top;word-break:break-all;text-align:center;}
 ul, li{list-style-type:none;}
 li{display: inline}
 .search{margin-bottom: 10px;}
@@ -20,6 +20,8 @@ li{display: inline}
     <input name="startdate" size=10 <?= ($startDate?"value=$startDate":'')?> />
     <label>结束日期:</label>
     <input name="enddate" size=10 <?= ($endDate?"value=$endDate":'')?> />
+    <label>APP:</label>
+    <input name="app" size=10 <?= ($app?"value=$app":'')?> />
     <input type="submit" value="查询" />
 </form>
 </div>
