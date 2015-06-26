@@ -57,7 +57,7 @@ use yii\bootstrap\NavBar;
 <header id="header">
     <hgroup>
         <h1 class="site_title"><a href="/">飞凡日志监控系统</a></h1>
-        <h2 class="section_title"><?= $this->context->title;?></h2><div class="btn_view_site"><a href="http://ffan.com">View Site</a></div>
+        <h2 class="section_title"><?= $this->context->title;?></h2><div class="btn_view_site"><a href="#">View Site</a></div>
     </hgroup>
 </header> <!-- end of header bar -->
 <section id="secondary_bar">

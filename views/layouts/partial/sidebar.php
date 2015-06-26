@@ -44,7 +44,7 @@
     
     <footer>
         <hr />
-        <p><strong>Copyright &copy; 2015 Wanda FFan</strong></p>
+        <p><strong>Copyright &copy; 2015</strong></p>
         <!--<p>Theme by <a href="http://www.medialoot.com">MediaLoot</a></p>-->
     </footer>
 </aside><!-- end of sidebar -->
