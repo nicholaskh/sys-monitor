@@ -14,14 +14,14 @@ class StatsController extends BaseController {
     public function actionElapsed() {
         $endTime = time() - time() % self::ELAPSED_STATS_INTERVAL;
         $startTime = $endTime - self::SHOW_ELAPSED_STATS_NUMBER * self::ELAPSED_STATS_INTERVAL;
-        $elapseds = SysStats::find()->where(['regex', 'tag', '/^elapsed\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->all();
+        $elapseds = SysStats::find()->where(['regex', 'tag', '/^elapsed\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->orderBy('ts')->all();
         $elapsedData = [];
         foreach ($elapseds as $e) {
             $path = explode('|', $e->tag, 2)[1];
             $elapsedData[$path][] = [$e->ts * 1000, $e->value];
         }
 
-        $reqCounts = SysStats::find()->where(['regex', 'tag', '/^elapsed_count\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->all();
+        $reqCounts = SysStats::find()->where(['regex', 'tag', '/^elapsed_count\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->orderBy('ts')->all();
         $reqCountData = [];
         foreach ($reqCounts as $r) {
             $path = explode('|', $r->tag, 2)[1];
