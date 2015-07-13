@@ -1,7 +1,7 @@
 var maChart;
 //var reqCountChart;
 
-Highcharts.setOptions({ global: { useUTC: false } });
+Highcharts.setOptions({ global: { useUTC: true } });
 
 function requestData() {
     /*
