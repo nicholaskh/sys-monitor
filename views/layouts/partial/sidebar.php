@@ -29,6 +29,16 @@
         <li class="icn_video"><a href="#">Video</a></li>
 -->
     </ul>
+    <h3>XAPI接口统计</h3>
+    <ul class="toggle">
+        <li class="icn_categories"><a href="/xapi-stats/baidu-activity">百度活动统计</a></li>
+<!--
+        <li class="icn_folder"><a href="#">File Manager</a></li>
+        <li class="icn_photo"><a href="#">Gallery</a></li>
+        <li class="icn_audio"><a href="#">Audio</a></li>
+        <li class="icn_video"><a href="#">Video</a></li>
+-->
+    </ul>
     <h3>系统管理</h3>
     <ul class="toggle">
         <li class="icn_categories"><a href="/sys-manager/switch">系统开关</a></li>
