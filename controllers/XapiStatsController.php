@@ -21,20 +21,29 @@ class XapiStatsController extends BaseController {
             $maData[$key][] = [$e->ts * 1000, $e->value];
         }
 
-        //$reqCounts = SysStats::find()->where(['regex', 'tag', '/^elapsed_count\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->orderBy('ts')->all();
-        //$reqCountData = [];
-        //foreach ($reqCounts as $r) {
-        //    $path = explode('|', $r->tag, 2)[1];
-        //    $reqCountData[$path][] = [$r->ts * 1000, $r->value];
-        //}
+        $macStats = SysStats::find()->where(['regex', 'tag', '/^mac\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->orderBy('ts')->all();
+        $macData = [];
+        foreach ($macStats as $e) {
+            $key = explode('|', $e->tag, 2)[1];
+            $macData[$key][] = [$e->ts * 1000, $e->value];
+        }
+
+        $mcStats = SysStats::find()->where(['regex', 'tag', '/^mc\|.*/'])->andWhere(['between', 'ts', $startTime, $endTime])->orderBy('ts')->all();
+        $mcData = [];
+        foreach ($mcStats as $e) {
+            $key = explode('|', $e->tag, 2)[1];
+            $mcData[$key][] = [$e->ts * 1000, $e->value];
+        }
+
         return $this->render('baidu-activity', [
             'maData' => $maData,
-        //    'reqCountData' => $reqCountData,
+            'macData' => $macData,
+            'mcData' => $mcData,
         ]);
     }
 
     // TODO
-    public function actionElapsedAjax() {
+    public function actionBaiduActivityAjax() {
         $endTime = time() - time() % self::ELAPSED_STATS_INTERVAL;
         $log = SysStats::find()->where(['tag' => '/^elapsed\|/', 'ts' => $endTime])->one();
         $value = ($log ? $log->value : 0);

@@ -1,5 +1,6 @@
 var maChart;
-//var reqCountChart;
+var macChart;
+var mcChart;
 
 Highcharts.setOptions({ global: { useUTC: true } });
 
@@ -57,7 +58,7 @@ function drawChart(type) {
             minPadding: 0.2,
             maxPadding: 0.2,
             title: {
-                text: '平均执行时间',
+                text: '统计次数',
                 margin: 30
             }
         },
@@ -67,10 +68,9 @@ function drawChart(type) {
         }
     });
 
-    /*
-    reqCountChart = new Highcharts.Chart({
+    macChart = new Highcharts.Chart({
         chart: {
-            renderTo: 'req-count-container',
+            renderTo: 'mac-container',
             defaultSeriesType: type,
             width: 1000,
             spacingLeft: 20,
@@ -81,7 +81,7 @@ function drawChart(type) {
             zoomType: 'xy'
         },
         title: {
-            text: 'PHP请求次数统计'
+            text: 'member activity coupon统计'
         },
         xAxis: {
             type: 'datetime',
@@ -96,14 +96,51 @@ function drawChart(type) {
             minPadding: 0.2,
             maxPadding: 0.2,
             title: {
-                text: '时间区间请求次数',
+                text: '统计次数',
                 margin: 30
             }
         },
-        series: reqCountSeries,
+        series: macSeries,
         tooltip: {
             valueDecimals: 0
         }
     });
-    */
+
+    mcChart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'mc-container',
+            defaultSeriesType: type,
+            width: 1000,
+            spacingLeft: 20,
+            events: {
+                // TODO
+                //load: requestData
+            },
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'member coupon统计'
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 150,
+            maxZoom: 20 * 1000,
+            title: {
+                text: '时间',
+                margin: 20
+            }
+        },
+        yAxis: {
+            minPadding: 0.2,
+            maxPadding: 0.2,
+            title: {
+                text: '统计次数',
+                margin: 30
+            }
+        },
+        series: mcSeries,
+        tooltip: {
+            valueDecimals: 0
+        }
+    });
 }
