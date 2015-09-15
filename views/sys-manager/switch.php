@@ -1,6 +1,6 @@
 <table>
 <tr><td colspan=4>
-<h3>Gcollector</h3>
+<h3>Gcollector</h3>(<?= count($gcollectors) . '台'; ?>)
 </td></tr>
 <?php
 // TODO -- when click button, start/stop/restart the service
